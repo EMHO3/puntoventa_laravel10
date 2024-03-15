@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">LISTADO DE VENTAS</h1>
+                <h1 class="m-0">LISTADO DE USUARIOS</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item active">Ventas</li>
+                    <li class="breadcrumb-item active">Usuarios</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,19 +26,20 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-xl-12">
-                        <form action="{{ route('venta.index') }}" method="get">
+                        <form action="{{ route('usuarios.index') }}" method="get">
+
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="input-group mb-6">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control" name="texto" placeholder="Buscar ventas" value="{{$texto}}" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                                        <input type="text" class="form-control" name="texto" placeholder="Buscar Usuarios" value="{{$texto}}" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar </button>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="input-group mb-6">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus-circle-fill"></i></span>
-                                        <a href="{{ route('venta.create') }}" class="btn btn-success">Nuevo ingreso</a>
+                                        <a href="{{ route('usuarios.create') }}" class="btn btn-success">Nuevo</a>
                                     </div>
                                 </div>
                             </div>
@@ -55,34 +56,28 @@
                             <thead>
                                 <tr>
                                     <th>Opciones</th>
-                                    <th>Fecha</th>
-                                    <th>Cliente</th>
-                                    <th>Comprobante</th>
-                                    <th>Impuesto</th>
-                                    <th>Total</th>
-                                    <th>Estado</th>
-
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($ventas as $ven)
+                                @foreach ($usuarios as $usu)
                                 <tr>
                                     <td>
-                                        <a href="{{route( 'venta.show',$ven->id_venta)}}" class="btn btn-warning btn-sm"><i class="fas fa-pen"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-pen"></i></a>
                                         <!-- Button trigger for danger theme modal -->
                                         <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#"><i class="fas fa-trash-alt"></i></button>
                                     </td>
-                                    <td>{{ $ven->fecha_hora}}</td>
-                                    <td>{{ $ven->nombre}}</td>
-                                    <td>{{ $ven->tipo_comprobante.': '.$ven->num_comprobante}}</td>
-                                    <td>{{ $ven->impuesto}}</td>
-                                    <td>{{ $ven->total_venta}}</td>
-                                    <td>{{ $ven->estado}}</td>
+                                    <td>{{ $usu->id}}</td>
+                                    <td>{{ $usu->name}}</td>
+                                    <td>{{ $usu->email}}</td>
+
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $ventas->links() }}
+                        {{ $usuarios->links() }}
                     </div>
                 </div>
             </div>
@@ -90,4 +85,4 @@
     </div>
 </section>
 <!-- Hoverable rows end -->
-@endsection 
+@endsection

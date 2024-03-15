@@ -131,15 +131,8 @@
 
         
         if (idarticulo!="" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!=""){
-        //    if(stock>cantidad)
-            console.log(cantidad);
-            console.log(stock);
-            console.log(unidad);
-            if (unidad==="kilos") {
-                cantidadfinal=cantidad/1000;
-            } else {
-                cantidadfinal=cantidad;
-            }
+       
+            cantidadfinal=cantidad;
             if (cantidadfinal<stock) {
                 subtotal[cont]=(cantidadfinal*precio_venta-descuento);
                 total=total+subtotal[cont];
@@ -159,9 +152,6 @@
             } else {
                 alert("la cantidad a vender supera el stock");
             }
-           
-           
-       
         }else{
             alert("Error al ingresar el detalle de la venta");
         }

@@ -12,7 +12,7 @@ class DetalleVenta extends Model
     protected $primaryKey='id_detalle_venta';
     public $timestamps=false;
 
-    protected $filable=[
+    protected $fillable=[
         'id_venta',
         'id_producto',
         'cantidad',

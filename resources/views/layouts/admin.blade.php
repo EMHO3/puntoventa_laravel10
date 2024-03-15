@@ -64,6 +64,10 @@
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
       </li>
+      <li><a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="icon-mid bl bl-box-arrow-left me-2"></i>Salir</a></li>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+      </form>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -71,6 +75,9 @@
       </li>
     </ul>
   </nav>
+  <?php
+   $ruta="http://localhost/puntoventa/public";
+  ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -111,13 +118,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{$ruta}}/almacen/producto" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{$ruta}}/almacen/categoria" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categorías</p>
                 </a>
@@ -134,13 +141,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{$ruta}}/compras/ingreso" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ingresos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="{{$ruta}}/compras/proveedor" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Proveedores</p>
                 </a>
@@ -157,13 +164,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="{{$ruta}}/ventas/clientes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Clientes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a href="{{$ruta}}/ventas/venta" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ventas</p>
                 </a>
@@ -180,7 +187,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="{{$ruta}}/seguridad/usuarios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>

@@ -23,8 +23,8 @@ class VentaFormRequest extends FormRequest
     {
         return [
             'id_cliente'=>'required',
-            'tipo_comprobante'=>'required|max:20',
-            'num_comprobante'=>'max:15',
+            'tipo_documento'=>'required|max:20',
+            'num_documento'=>'max:15',
             'id_producto'=>'required',
             'cantidad'=>'required',
             'precio_venta'=>'required'

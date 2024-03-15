@@ -84,13 +84,17 @@ class VentaController extends Controller
             $precio_venta=$request->get('precio_venta');
 
             $cont=0;
+            
+
             while ($cont<count($id_producto)) {
                 $detalle=new DetalleVenta();
+
                 $detalle->id_venta=$ventas->id_venta;
                 $detalle->id_producto=$id_producto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
                 $detalle->descuento=$descuento[$cont];
-                $detalle->precio_venta=$precio_venta[$cont];
+                $detalle->precio=$precio_venta[$cont];
+                
                 $detalle->save();
                 $cont=$cont+1;
             }
@@ -116,8 +120,8 @@ class VentaController extends Controller
             ->first();
         $detalles=DB::table('detalle_venta as d')
             ->join('producto as p','d.id_producto','=','p.id_producto')
-            ->select('p.nombre as producto','d.cantidad','d.precio_compra','d.precio_venta')
-            ->where('d.id_vetalle_venta','=',$id)
+            ->select('p.nombre as producto','d.cantidad','d.descuento','d.precio')
+            ->where('d.id_venta','=',$id)
             ->get();
         return view("ventas.venta.show",["ventas"=>$ventas,"detalles"=>$detalles]);     
     }
